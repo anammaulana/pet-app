@@ -5,7 +5,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin-dashboard', function () {
+    return view('dashboard-admin');
+})->name('dashboardAdmin');
 
+Route::get('/admin-hewan', function () {
+    return view('admin.hewan.index');
+})->name('hewanAdmin');
+
+Route::get('/admin-kategori', function () {
+    return view('admin.kategori.index');
+})->name('kategoriAdmin');
+
+Route::get('/admin-shelter', function () {
+    return view('admin.shelter.index');
+})->name('shelterAdmin');
 
 Route::get('/login', function () {
     return view('login');
