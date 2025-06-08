@@ -47,6 +47,14 @@
       margin-bottom: 20px;
       font-size: 14px;
     }
+    input[type="password"] {
+      width: 370px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
 
     button {
       width: 400px;
@@ -113,12 +121,26 @@
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <h1>PET SAVERS</h1>
     <p>Silahkan Login</p>
-    <input type="email" placeholder="email@domain.com" required />
-    <input type="email" placeholder="email@domain.com" required />
-    <button>Masuk</button>
+
+    @if ($errors->any())
+      <div style="color: red;">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+    <form method="POST" action="/login">
+      @csrf
+      <input type="email" name="email" placeholder="email@domain.com" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Masuk</button>
+    </form>
     
     <div class="divider">or</div>
     

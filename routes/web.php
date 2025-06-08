@@ -1,13 +1,26 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin-dashboard', fn() => 'Admin only area');
+});
+
+Route::middleware(['auth', 'role:admin,customer'])->group(function () {
+    Route::get('/dashboard', fn() => 'Dashboard for Admin and Customer');
+});
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin-dashboard', function () {
-    return view('dashboard-admin');
-})->name('dashboardAdmin');
+// Route::get('/admin-dashboard', function () {
+//     return view('dashboard-admin');
+// })->name('dashboardAdmin');
 
 Route::get('/admin-hewan', function () {
     return view('admin.hewan.index');
@@ -21,9 +34,9 @@ Route::get('/admin-shelter', function () {
     return view('admin.shelter.index');
 })->name('shelterAdmin');
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 Route::get('/kucing', function () {
     return view('kucing.index');
 })->name('kucing');
