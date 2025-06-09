@@ -122,14 +122,14 @@
         <!-- Navbar -->
         <div class="navbar">
             <div class="user-info">
-            Hai,Admin
-                <form method="POST" action="#" style="display: inline;">
+                Hai, {{ Auth::user()->name ?? 'User' }}
+        
+                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                     @csrf
                     <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
                         <i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i> Logout
                     </button>
                 </form>
-
             </div>
         </div>
 

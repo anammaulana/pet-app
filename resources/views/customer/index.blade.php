@@ -12,8 +12,10 @@
         /* CSS untuk Halaman Utama (dari desain Anda) */
         body {
             margin: 0;
-            background-color: #f4f3f3; /* Warna background utama */
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            background-color: #f4f3f3;
+            /* Warna background utama */
+            overflow-x: hidden;
+            /* Mencegah scroll horizontal */
         }
 
         .toko,
@@ -358,7 +360,7 @@
             font-size: 14px;
             color: #666;
         }
-        
+
         .berencana-adopsi {
             margin-top: 40px;
             width: 90%;
@@ -377,7 +379,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            justify-content: center; /* Tambahkan ini untuk memusatkan grid secara horizontal */
+            justify-content: center;
+            /* Tambahkan ini untuk memusatkan grid secara horizontal */
         }
 
         .berencana-card {
@@ -420,7 +423,6 @@
             line-height: 1.5;
             color: #555;
         }
-
     </style>
 </head>
 
@@ -430,9 +432,6 @@
         <div class="rectangle-97"></div>
         <div class="instagram">Instagram</div>
         <div class="pet-saver">Pet Saver</div>
-        <!-- @auth
-            Hai, {{ Auth::user()->name }} |
-        @endauth -->
         <div class="sign-in">
             @guest
                 <a href="{{ route('register') }}">Sign In</a>
@@ -446,7 +445,8 @@
             @endguest
         </div>
         <div class="temukan-sahabatmu-di-pet-saver">Temukan Sahabatmu di Pet Saver!</div>
-        <div class="cari-hewan-peliharaan-dari-shelter-terdekat-dari-lokasi-kamu">Cari hewan peliharaan dari shelter terdekat dari lokasi kamu</div>
+        <div class="cari-hewan-peliharaan-dari-shelter-terdekat-dari-lokasi-kamu">Cari hewan peliharaan dari shelter
+            terdekat dari lokasi kamu</div>
         <div class="rectangle-98">
             <div class="search-input-wrapper">
                 <input type="text" placeholder="Cari shelter terdekat">
@@ -454,22 +454,26 @@
         </div>
 
         <div class="icons-container">
-            <a  href="{{ route('kucing') }}"style="text-decoration: none; color: inherit;">
+            <a href="{{ route('kucing') }}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                   <img src="/img/iconkucing.png" alt="Kucing icon"> <p>Kucing</p>
+                    <img src="/img/iconkucing.png" alt="Kucing icon">
+                    <p>Kucing</p>
                 </div>
             </a>
             <a href="{{ route('anjing')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                    <img src="img/iconanjing.png" alt="Anjing icon"> <p>Anjing</p>
+                    <img src="img/iconanjing.png" alt="Anjing icon">
+                    <p>Anjing</p>
                 </div>
             </a>
             <div class="icon-box" id="hewanLainnyaBtn">
-                <img src="img/paw.png" alt="Hewan lainnya icon"> <p>Hewan Lainnya</p>
+                <img src="img/paw.png" alt="Hewan lainnya icon">
+                <p>Hewan Lainnya</p>
             </div>
             <a href="{{route('shelter_rescue')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                    <img src="img/rescue.png" alt="Shelter & Rescue icon"> <p>Shelter & Rescue</p>
+                    <img src="img/rescue.png" alt="Shelter & Rescue icon">
+                    <p>Shelter & Rescue</p>
                 </div>
             </a>
         </div>
@@ -479,19 +483,22 @@
         <button class="back-button" id="backBtn">←</button>
         <div class="jenis-hewan-title">Jenis hewan peliharaan apa yang kamu cari?</div>
         <div class="hewan-lainnya-container">
-            <a href="{{route('hamster')}}"style="text-decoration: none; color: inherit;">
+            <a href="{{route('hamster')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                    <img src="img/hamster.png" alt="hamster icon"> <p>Hamster</p>
+                    <img src="img/hamster.png" alt="hamster icon">
+                    <p>Hamster</p>
                 </div>
             </a>
-           <a href="{{route('marmut')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{route('marmut')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                  <img src="{{ asset('img/marmut.png') }}" alt="marmut icon"> <p>Marmut</p>
+                    <img src="{{ asset('img/marmut.png') }}" alt="marmut icon">
+                    <p>Marmut</p>
                 </div>
             </a>
-            <a href="{{route('kelinci')}}"style="text-decoration: none; color: inherit;">
+            <a href="{{route('kelinci')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
-                    <img src="img/kelinci.png" alt="Kelinci icon"> <p>Kelinci</p>
+                    <img src="img/kelinci.png" alt="Kelinci icon">
+                    <p>Kelinci</p>
                 </div>
             </a>
         </div>
@@ -534,21 +541,22 @@
         <div class="berencana-adopsi">
             <h2>Berencana Adopsi?</h2>
             <div class="berencana-grid">
-                <a href="{{route('tips-merawat-anak-kucing')}}" style="text-decoration: none; color: inherit;"> 
+                <a href="{{route('tips-merawat-anak-kucing')}}" style="text-decoration: none; color: inherit;">
                     <div class="berencana-card">
                         <img src="img/iconkucing.png" alt="Tips Merawat Anak Kucing" class="icon">
                         <h3>Tips Merawat Anak Kucing</h3>
                         <p>Memberikan perawatan terbaik untuk anak kucing dan memastikan mereka tumbuh sehat.</p>
                     </div>
                 </a>
-                <a  href="{{route('tips-memilih-hewan-peliharaan')}}" style="text-decoration: none; color: inherit;"> 
+                <a href="{{route('tips-memilih-hewan-peliharaan')}}" style="text-decoration: none; color: inherit;">
                     <div class="berencana-card">
                         <img src="img/paw.png" alt="Tips Memilih Hewan Peliharaan" class="icon">
                         <h3>Tips Memilih Hewan Peliharaan</h3>
-                        <p>Pilih hewan peliharaan yang tepat untuk keluarga dan menciptakan hubungan yang bahagia dengan hewan kesayangan.</p>
+                        <p>Pilih hewan peliharaan yang tepat untuk keluarga dan menciptakan hubungan yang bahagia dengan
+                            hewan kesayangan.</p>
                     </div>
                 </a>
-                <a href="{{route('tips-memilih-shelter')}}" style="text-decoration: none; color: inherit;"> 
+                <a href="{{route('tips-memilih-shelter')}}" style="text-decoration: none; color: inherit;">
                     <div class="berencana-card">
                         <img src="img/rescue.png" alt="Memilih Hewan di Shelter" class="icon">
                         <h3>Memilih Hewan di Shelter</h3>
@@ -579,13 +587,13 @@
         });
 
         // JavaScript untuk toggle panel pilihan hewan lainnya
-        document.getElementById('hewanLainnyaBtn').addEventListener('click', function() {
+        document.getElementById('hewanLainnyaBtn').addEventListener('click', function () {
             var panel = document.getElementById('hewanLainnyaPanel');
             panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
         });
 
         // JavaScript untuk tombol kembali (panah)
-        document.getElementById('backBtn').addEventListener('click', function() {
+        document.getElementById('backBtn').addEventListener('click', function () {
             var panel = document.getElementById('hewanLainnyaPanel');
             panel.style.display = 'none';
         });

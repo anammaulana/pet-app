@@ -44,11 +44,18 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dashboard');
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin-dashboard');
+            }
+
+            return redirect()->intended('/dashboard'); // untuk user/customer
         }
 
         return back()->withErrors(['email' => 'Email atau password salah']);
     }
+
 
     public function logout()
     {

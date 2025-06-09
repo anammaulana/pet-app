@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,7 @@
       margin-bottom: 20px;
       font-size: 14px;
     }
+
     input[type="password"] {
       width: 370px;
       padding: 12px;
@@ -117,23 +119,23 @@
       color: #555;
       text-decoration: none;
     }
-
   </style>
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
     <h1>PET SAVERS</h1>
     <p>Silahkan Login</p>
 
     @if ($errors->any())
-      <div style="color: red;">
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
+    <div style="color: red;">
+      <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+    @endforeach
+      </ul>
+    </div>
+  @endif
 
     <form method="POST" action="/login">
       @csrf
@@ -141,17 +143,20 @@
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Masuk</button>
     </form>
-    
+
     <div class="divider">or</div>
-    
+
     <div class="google-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+      <img src="/img/logo_google.svg" alt="Google logo" />
+      <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" /> -->
       Continue with Google
     </div>
 
     <div class="terms">
-      By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      Belum punya akun? <a class="underline" href="{{ route('register') }}">Daftar di sini</a><br><br>
+      Dengan mengklik lanjutkan, Anda setuju dengan <a href="#">Ketentuan Layanan</a> dan <a href="#">Kebijakan Privasi</a>
     </div>
   </div>
 </body>
+
 </html>
