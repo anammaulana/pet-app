@@ -63,33 +63,43 @@ class HewanController extends Controller
         return view('admin.hewan.edit', compact('hewan', 'kategoris', 'shelters'));
     }
 
-    public function update(Request $request, HewanModel $hewan)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama_hewan' => 'required|string|max:255',
             'id_kategori' => 'required|exists:kategoris,id',
-            'keturunan' => 'nullable|in:Persia,Maine coon,British Short Hair',
-            'usia' => 'required|in:anak,dewasa,senior',
-            'jenis_kelamin' => 'required|in:jantan,betina',
-            'gambar' => 'nullable|image|max:2048',
+            'keturunan' => 'nullable|string|max:255',
+            'usia' => 'required|string',
+            'jenis_kelamin' => 'required|string',
             'id_shelter' => 'required|exists:shelters,id',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-
-        $data = $request->all();
-
+    
+        $hewan = HewanModel::findOrFail($id);
+    
+        $hewan->nama_hewan = $request->nama_hewan;
+        $hewan->id_kategori = $request->id_kategori;
+        $hewan->keturunan = $request->keturunan;
+        $hewan->usia = $request->usia;
+        $hewan->jenis_kelamin = $request->jenis_kelamin;
+        $hewan->id_shelter = $request->id_shelter;
+    
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
-            if ($hewan->gambar) {
-                \Storage::disk('public')->delete($hewan->gambar);
+            if ($hewan->gambar && \Storage::exists('public/' . $hewan->gambar)) {
+                \Storage::delete('public/' . $hewan->gambar);
             }
-
-            $data['gambar'] = $request->file('gambar')->store('hewans', 'public');
+    
+            $file = $request->file('gambar');
+            $path = $file->store('hewan', 'public'); // simpan di storage/app/public/hewan
+            $hewan->gambar = $path;
         }
-
-        $hewan->update($data);
-
-        return redirect()->route('hewanAdmin.index')->with('success', 'Hewan berhasil diperbarui.');
+    
+        $hewan->save();
+    
+        return redirect()->route('hewanAdmin.index')->with('success', 'Data hewan berhasil diperbarui.');
     }
+    
 
     public function destroy(HewanModel $hewan)
     {
