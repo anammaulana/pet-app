@@ -477,7 +477,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="brand">Pet Saver</div>
         <div class="nav-right">
