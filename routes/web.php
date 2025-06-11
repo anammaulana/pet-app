@@ -18,8 +18,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     
 Route::get('/admin-dashboard', [DashboardController::class, 'admin'])->name('dashboardAdmin');
 
-
-
 Route::resource('kategoriAdmin', kategoriController::class);
 
 Route::resource('shelterAdmin', ShelterController::class);

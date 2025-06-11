@@ -1,12 +1,24 @@
 @extends('layouts.dashboard_layout')
 
+<style>
+
+    .btn-back {
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+</style>
+
 @section('content')
     <div class="card"
         style="background-color: white; padding: 30px; margin: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 12px;">
 
         <div style="margin-bottom: 25px;">
             <h2 style="margin: 0;">Detail Hewan</h2>
-            <p style="color: #555;">Informasi lengkap hewan</p>
+            <p style="color: #555;">Lihat informasi lengkap tentang hewan ini.</p>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -63,12 +75,9 @@
             </div>
         </div>
 
-        <!-- Tombol kembali -->
-        <div style="margin-top: 30px;">
-            <a href="{{ route('hewanAdmin.index') }}"
-                style="padding: 10px 20px; background-color: #6c757d; color: white; border-radius: 6px; text-decoration: none; font-size: 16px;">
-                Kembali
-            </a>
-        </div>
+        <!-- Tombol Kembali -->
+    <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
+        <a href="{{ route('hewanAdmin.index') }}" class="btn-back">Kembali</a>
+    </div>
     </div>
 @endsection

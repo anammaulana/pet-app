@@ -76,7 +76,7 @@
                     ['label' => 'Total Anjing', 'value' => $totalAnjing, 'bg' => '#dcd6ff', 'icon' => 'fas fa-dog', 'color' => '#5b3ee7'],
                     ['label' => 'Total Hamster', 'value' => $totalHamster, 'bg' => '#ffe0e0', 'icon' => 'fas fa-hippo', 'color' => '#e53e3e'],
                     ['label' => 'Total Marmut', 'value' => $totalMarmut, 'bg' => '#fff3b0', 'icon' => 'fas fa-drumstick-bite', 'color' => '#e6a100'],
-                    ['label' => 'Total Kelinci', 'value' => $totalKelinci, 'bg' => '#c7f0ff', 'icon' => 'fas fa-rabbit', 'color' => '#00b2d6'],
+                    ['label' => 'Total Kelinci', 'value' => $totalKelinci, 'bg' => '#c7f0ff', 'icon' => 'fas fa-paw', 'color' => '#00b2d6'],
                     ['label' => 'Total Shelter & Rescue', 'value' => $totalShelter, 'bg' => '#fde68a', 'icon' => 'fas fa-home', 'color' => '#c2410c'],
                 ];
             @endphp

@@ -10,7 +10,7 @@
             </div>
             <div style="display: flex; gap: 10px;">
               
-                    <a href="{{ route('hewanAdmin.create') }}" style="padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">
+                    <a href="{{ route('hewanAdmin.create') }}" style="padding: 10px 15px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">
                         Tambah
                     </a>
             </div>
