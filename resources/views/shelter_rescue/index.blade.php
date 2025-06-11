@@ -66,10 +66,10 @@
 
         .breadcrumb-bar {
             background-color: #ec8600; /* Warna oranye */
+            height: 50px;
             padding: 10px 32px;
             color: white;
-            font-size: 14px;
-            border-radius: 5px; /* Sedikit border-radius seperti di desain */
+            font-size: 20px;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
@@ -296,19 +296,12 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="brand">Pet Saver</div>
-        <div class="nav-right">
-            <button class="instagram-btn">Instagram</button>
-            <a href="#">Sign In</a>
-        </div>
-    </header>
-
-    <div class="main-content">
-        <div class="breadcrumb-bar">
-            <a href="index.html">Home</a> 
+     <div class="breadcrumb-bar">
+            <a href="{{route('home')}}">Home</a> 
             <span>></span>
         </div>
+    <div class="main-content">
+      
 
         <section class="search-section">
             <h2 class="search-title">Cari Animal Shelter atau Rescue</h2>

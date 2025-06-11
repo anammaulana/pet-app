@@ -18,7 +18,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     
 Route::get('/admin-dashboard', [DashboardController::class, 'admin'])->name('dashboardAdmin');
 
-Route::get('/home', [DashboardController::class, 'home'])->name('home');
+
 
 Route::resource('kategoriAdmin', kategoriController::class);
 
@@ -31,6 +31,8 @@ Route::resource('hewanAdmin', HewanController::class);
 
 Route::middleware(['auth', 'role:admin,customer'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'customer']);
+
+    Route::get('/home', [DashboardController::class, 'home'])->name('home');
     
    Route::resource('kucing', kucingController::class);
 

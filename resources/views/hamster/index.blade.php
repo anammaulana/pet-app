@@ -427,21 +427,62 @@
             }
         }
 
+        .adopsi-grid {
+            padding: 0 24px;
+        }
+
+        .adopsi-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+            gap: 20px;
+        }
+
+        .adopsi-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Biar seragam */
+        }
+
+        .adopsi-card img {
+            width: 100%;
+            height: 300px; /* Ukuran gambar seragam */
+            object-fit: fill;
+        }
+
+        .adopsi-info {
+            padding: 15px;
+            text-align: left;
+            flex-grow: 1; /* Biar info isi penuh ke bawah */
+        }
+
+        .adopsi-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .adopsi-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+
     </style>
 </head>
 <body>
-    <header>
-        <div class="brand">Pet Saver</div>
-        <div class="nav-right">
-            <button class="instagram-btn">Instagram</button>
-            <a href="#">Sign In</a>
-        </div>
-    </header>
+
 
     <div class="main-navbar">
         <div class="title">
             <img src="img/whitecat.png" alt="Cat Icon" class="cat-icon">
-            Find Dog
+            Find Hamster
         </div>
         <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
 
@@ -481,17 +522,18 @@
         </aside>
 
         <section class="results-area">
-
-
-        @foreach($hewan as $item)
-            <div class="pet-card">
-                <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
-                <h3>{{ $item->nama_hewan }}</h3>
-                <p> {{ $item->keturunan }}</p>
-            
-            </div>
-        @endforeach
-            
+             <div class="adopsi-grid">
+        <div class="adopsi-container">
+            @foreach($hewan as $item)
+                <div class="adopsi-card">
+                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
+                    <div class="adopsi-info">
+                        <h3>{{ $item->nama_hewan }}</h3>
+                        <p>{{ $item->keturunan }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
         </section>
     </div>
 

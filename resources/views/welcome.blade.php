@@ -29,10 +29,10 @@
 
         .background-1 {
             width: 100%;
-            height: 464px;
+            height: 600px;
             position: absolute;
             left: 0px;
-            top: 148px;
+            top: 10px;
             object-fit: cover;
         }
 
@@ -61,7 +61,7 @@
         }
 
         .pet-saver {
-            color: #ec8600;
+            color: #ffffff;
             text-align: center;
             font-family: "Inter", sans-serif;
             font-size: 24px;
@@ -90,7 +90,7 @@
         }
 
         .temukan-sahabatmu-di-pet-saver {
-            color: #ffffff;
+            color: black;
             text-align: center;
             font-family: "Inter", sans-serif;
             font-size: 48px;
@@ -105,7 +105,7 @@
         }
 
         .cari-hewan-peliharaan-dari-shelter-terdekat-dari-lokasi-kamu {
-            color: #dadada;
+            color: black;
             text-align: center;
             font-family: "Inter", sans-serif;
             font-size: 20px;
@@ -316,39 +316,42 @@
             font-weight: 700;
         }
 
-        .adopsi-grid {
+         .adopsi-grid {
+            padding: 10px 24px;
+        }
+
+        .adopsi-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            width: 90%;
-            max-width: 1000px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+            gap: 20px;
         }
 
         .adopsi-card {
-            background-color: #fff;
-            border-radius: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Biar seragam */
         }
 
         .adopsi-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            height: 300px; /* Ukuran gambar seragam */
+            object-fit: fill;
         }
 
         .adopsi-info {
             padding: 15px;
             text-align: left;
+            flex-grow: 1; /* Biar info isi penuh ke bawah */
         }
 
         .adopsi-info h3 {
             margin: 0 0 5px 0;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #333;
         }
@@ -358,6 +361,7 @@
             font-size: 14px;
             color: #666;
         }
+
         
         .berencana-adopsi {
             margin-top: 40px;
@@ -421,33 +425,62 @@
             color: #555;
         }
 
+        .left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.sign-in {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.auth-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.auth-link:hover {
+    color: #007bff;
+}
+
+.logout-button {
+    padding: 0;
+    font: inherit;
+}
+
     </style>
 </head>
 
 <body>
     <div class="toko">
-       <img class="background-1" src="img/background.png" alt="Pet background">
-<div class="rectangle-97"></div>
-<div class="instagram">Instagram</div>
-<div class="pet-saver">Pet Saver</div>
+            <img class="background-1" src="img/background.png" alt="Pet background">
+       <div class="rectangle-97"></div>
+    
+    <div class="left-section">
+        <div class="pet-saver">Pet Saver</div>
+        <div class="instagram">Instagram</div>
+    </div>
+    
+    <div class="sign-in">
+        @guest
+            <a href="{{ route('register') }}" class="auth-link">Sign In</a>
+        @else
+            @if(Auth::user()->role === 'admin')
+                <a href="{{ route('dashboardAdmin') }}" class="auth-link">Dashboard</a>
+            @endif
 
-<div class="sign-in">
-    @guest
-        <a href="{{ route('register') }}">Sign In</a>
-    @else
-        @if(Auth::user()->role === 'admin')
-            <!-- Tombol Dashboard khusus admin -->
-            <a href="{{ route('dashboardAdmin') }}" style="margin-right: 10px;">Dashboard</a>
-        @endif
-
-        <!-- Tombol Logout -->
-        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-            @csrf
-            <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
-                Logout
-            </button>
-        </form>
-    @endguest
+            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="auth-link logout-button">Logout</button>
+            </form>
+        @endguest
+    </div>
 </div>
 
         <div class="temukan-sahabatmu-di-pet-saver">Temukan Sahabatmu di Pet Saver!</div>
@@ -502,22 +535,22 @@
         </div>
     </div>
 
-    <div class="rekomendasi-home" id="rekomendasiHome">
-        <h2 class="section-title">Hewan Siap Adopsi Terdekat yang Tersedia</h2>
-        <div class="adopsi-grid">
-            <div class="adopsi-container">
-    @foreach($hewansTerbaru as $hewan)
-        <div class="adopsi-card">
-            <img src="{{ asset('storage/' . $hewan->gambar) }}" alt="{{ $hewan->nama }}">
-            <div class="adopsi-info">
-                <h3>{{ $hewan->nama_hewan }}</h3>
-                <p>{{ $hewan->keturunan }}</p>
-            </div>
+<div class="rekomendasi-home" id="rekomendasiHome">
+    <h2 class="section-title">Hewan Siap Adopsi Terdekat yang Tersedia</h2>
+    <div class="adopsi-grid">
+        <div class="adopsi-container">
+            @foreach($hewansTerbaru as $hewan)
+                <div class="adopsi-card">
+                    <img src="{{ asset('storage/' . $hewan->gambar) }}" alt="{{ $hewan->nama_hewan }}">
+                    <div class="adopsi-info">
+                        <h3>{{ $hewan->nama_hewan }}</h3>
+                        <p>{{ $hewan->keturunan }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    @endforeach
-</div>
+    </div>
 
-        </div>
 
 
         <div class="berencana-adopsi">

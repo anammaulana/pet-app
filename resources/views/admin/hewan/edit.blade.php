@@ -1,6 +1,66 @@
 @extends('layouts.dashboard_layout')
 
 @section('content')
+
+<style>
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: white;
+        appearance: none; /* Makes <select> look consistent across browsers */
+    }
+
+    .form-group {
+        margin-bottom: 5px;
+    }
+
+    .form-label {
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .form-error {
+        color: red;
+        font-size: 14px;
+    }
+
+    .form-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .btn-cancel {
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .btn-submit {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+    }
+</style>
+
 <div class="card" style="background-color: white; padding: 30px; margin: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 12px;">
 
     <div style="margin-bottom: 25px;">
@@ -8,27 +68,23 @@
         <p style="color: #555;">Form Edit Data Hewan</p>
     </div>
 
-<form action="{{ route('hewanAdmin.update', $hewan->id) }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
+    <form action="{{ route('hewanAdmin.update', $hewan->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
-
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div>
-                <label for="nama_hewan">Nama Hewan</label>
-                <input type="text" name="nama_hewan" id="nama_hewan"
-                       class="form-control"
-                       style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
+        <div class="form-section">
+            <div class="form-group">
+                <label for="nama_hewan" class="form-label">Nama Hewan</label>
+                <input type="text" name="nama_hewan" id="nama_hewan" class="form-control"
                        value="{{ old('nama_hewan', $hewan->nama_hewan) }}" required>
                 @error('nama_hewan')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="id_kategori">Kategori</label>
-                <select name="id_kategori" id="id_kategori" class="form-control" required
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <div class="form-group">
+                <label for="id_kategori" class="form-label">Kategori</label>
+                <select name="id_kategori" id="id_kategori" class="form-control" required>
                     <option value="">-- Pilih Kategori --</option>
                     @foreach($kategoris as $kategori)
                         <option value="{{ $kategori->id }}" {{ old('id_kategori', $hewan->id_kategori) == $kategori->id ? 'selected' : '' }}>
@@ -37,55 +93,51 @@
                     @endforeach
                 </select>
                 @error('id_kategori')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="keturunan">Keturunan</label>
-                <select name="keturunan" id="keturunan" class="form-control"
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <div class="form-group">
+                <label for="keturunan" class="form-label">Keturunan</label>
+                <select name="keturunan" id="keturunan" class="form-control">
                     <option value="">-- Pilih Keturunan (Opsional) --</option>
                     <option value="Persia" {{ old('keturunan', $hewan->keturunan) == 'Persia' ? 'selected' : '' }}>Persia</option>
                     <option value="Maine coon" {{ old('keturunan', $hewan->keturunan) == 'Maine coon' ? 'selected' : '' }}>Maine Coon</option>
                     <option value="British Short Hair" {{ old('keturunan', $hewan->keturunan) == 'British Short Hair' ? 'selected' : '' }}>British Short Hair</option>
                 </select>
                 @error('keturunan')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="usia">Usia</label>
-                <select name="usia" id="usia" class="form-control" required
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <div class="form-group">
+                <label for="usia" class="form-label">Usia</label>
+                <select name="usia" id="usia" class="form-control" required>
                     <option value="">-- Pilih Usia --</option>
                     <option value="anak" {{ old('usia', $hewan->usia) == 'anak' ? 'selected' : '' }}>Anak</option>
                     <option value="dewasa" {{ old('usia', $hewan->usia) == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
                     <option value="senior" {{ old('usia', $hewan->usia) == 'senior' ? 'selected' : '' }}>Senior</option>
                 </select>
                 @error('usia')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="jenis_kelamin">Jenis Kelamin</label>
-                <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <div class="form-group">
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
                     <option value="">-- Pilih Jenis Kelamin --</option>
                     <option value="jantan" {{ old('jenis_kelamin', $hewan->jenis_kelamin) == 'jantan' ? 'selected' : '' }}>Jantan</option>
                     <option value="betina" {{ old('jenis_kelamin', $hewan->jenis_kelamin) == 'betina' ? 'selected' : '' }}>Betina</option>
                 </select>
                 @error('jenis_kelamin')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="id_shelter">Shelter</label>
-                <select name="id_shelter" id="id_shelter" class="form-control" required
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <div class="form-group">
+                <label for="id_shelter" class="form-label">Shelter</label>
+                <select name="id_shelter" id="id_shelter" class="form-control" required>
                     <option value="">-- Pilih Shelter --</option>
                     @foreach($shelters as $shelter)
                         <option value="{{ $shelter->id }}" {{ old('id_shelter', $hewan->id_shelter) == $shelter->id ? 'selected' : '' }}>
@@ -94,16 +146,15 @@
                     @endforeach
                 </select>
                 @error('id_shelter')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div>
-                <label for="gambar">Upload Gambar Baru (opsional)</label>
-                <input type="file" name="gambar" id="gambar" class="form-control"
-                       style="padding: 10px;">
+            <div class="form-group">
+                <label for="gambar" class="form-label">Upload Gambar Baru (opsional)</label>
+                <input type="file" name="gambar" id="gambar" class="form-control">
                 @error('gambar')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span class="form-error">{{ $message }}</span>
                 @enderror
 
                 @if ($hewan->gambar)
@@ -113,16 +164,9 @@
             </div>
         </div>
 
-        <!-- Tombol -->
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
-            <a href="{{ route('hewanAdmin.index') }}" class="btn"
-               style="padding: 10px 20px; background-color: red; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
-                Batal
-            </a>
-            <button type="submit" class="btn btn-primary"
-                    style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 6px; font-size: 18px;">
-                Update
-            </button>
+        <div class="form-buttons">
+            <a href="{{ route('hewanAdmin.index') }}" class="btn-cancel">Batal</a>
+            <button type="submit" class="btn-submit">Update</button>
         </div>
     </form>
 </div>

@@ -20,7 +20,7 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #007bff;
+            background-color: #ec8600;
             color: white;
             padding-top: 20px;
             flex-shrink: 0;
@@ -119,30 +119,34 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <!-- Navbar -->
-        <div class="navbar">
-            <div class="user-info">
-            Hai,Admin
-            <a href="{{route('home')}}" 
-               style="margin-left: 20px; text-decoration: none; color: inherit;">
-                <i class="fas fa-home" style="margin-right: 5px;"></i> Home
+  <div class="main-content" >
+
+    <!-- Navbar -->
+    <div class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);  margin-bottom: 30px;">
+        <div class="user-info" style="font-size: 18px; color: #333;">
+            Hai, Admin
+            <a href="{{ route('home') }}" 
+               style="margin-left: 20px; text-decoration: none; color: #007bff; font-weight: 500;">
+                <i class="fas fa-home" style="margin-right: 6px;"></i> Home
             </a>
-                <form method="POST" action="#" style="display: inline;">
-                    @csrf
-                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
-                        <i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i> Logout
-                    </button>
-                </form>
-
-            </div>
         </div>
 
-        <!-- Content Section -->
-        <div class="content mt-4">
-            @yield('content')
-        </div>
+        <form method="POST" action="#" style="margin: 0;">
+            @csrf
+            <button type="submit" 
+                    style="background: none; border: none; color: #dc3545; cursor: pointer; font-size: 16px;">
+                <i class="fas fa-sign-out-alt" style="margin-right: 6px;"></i> Logout
+            </button>
+        </form>
     </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        @yield('content')
+    </div>
+
+</div>
+
 </body>
 
 </html>

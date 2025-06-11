@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temukan shelters - Pet Saver</title>
+    <title>Temukan shelter - Pet Saver</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
         }
 
         .main-navbar .cat-icon {
-            width: 30px; /* Ukuran ikon shelters */
+            width: 30px; /* Ukuran ikon shelter */
             height: 30px;
             margin-right: 10px;
             vertical-align: middle;
@@ -427,27 +427,68 @@
             }
         }
 
+        .adopsi-grid {
+            padding: 0 24px;
+        }
+
+        .adopsi-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+            gap: 20px;
+        }
+
+        .adopsi-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Biar seragam */
+        }
+
+        .adopsi-card img {
+            width: 100%;
+            height: 300px; /* Ukuran gambar seragam */
+            object-fit: fill;
+        }
+
+        .adopsi-info {
+            padding: 15px;
+            text-align: left;
+            flex-grow: 1; /* Biar info isi penuh ke bawah */
+        }
+
+        .adopsi-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .adopsi-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+
     </style>
 </head>
 <body>
-    <header>
-        <div class="brand">Pet Saver</div>
-        <div class="nav-right">
-            <button class="instagram-btn">Instagram</button>
-            <a href="#">Sign In</a>
-        </div>
-    </header>
+
 
     <div class="main-navbar">
         <div class="title">
             <img src="img/whitecat.png" alt="Cat Icon" class="cat-icon">
-            Find Shelter & Rescue
+            Find shelter
         </div>
         <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
 
     <div class="content-area">
         <aside class="sidebar">
- <form method="GET" action="{{ route('shelters.show', $shelters->id) }}">
+  <form method="GET" action="{{ route('shelters.show', $shelters->id) }}">
     <div class="filter-group">
         <label for="keturunan">Keturunan</label>
         <select name="keturunan" id="keturunan" onchange="this.form.submit()">
@@ -462,7 +503,7 @@
         <label for="usia">Usia</label>
         <select name="usia" id="usia" onchange="this.form.submit()">
             <option value="">Pilih</option>
-            <option value="anak_shelters" {{ request('usia') == 'anak_shelters' ? 'selected' : '' }}>Anak shelters</option>
+            <option value="anak_shelter" {{ request('usia') == 'anak_shelter' ? 'selected' : '' }}>Anak shelter</option>
             <option value="dewasa" {{ request('usia') == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
             <option value="senior" {{ request('usia') == 'senior' ? 'selected' : '' }}>Senior</option>
         </select>
@@ -481,17 +522,18 @@
         </aside>
 
         <section class="results-area">
-
-
-        @foreach($hewans as $item)
-            <div class="pet-card">
-                <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
-                <h3>{{ $item->nama_hewan }}</h3>
-                <p> {{ $item->keturunan }}</p>
-            
-            </div>
-        @endforeach
-            
+             <div class="adopsi-grid">
+        <div class="adopsi-container">
+            @foreach($hewans as $item)
+                <div class="adopsi-card">
+                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
+                    <div class="adopsi-info">
+                        <h3>{{ $item->nama_hewan }}</h3>
+                        <p>{{ $item->keturunan }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
         </section>
     </div>
 
@@ -525,7 +567,7 @@
 
                     // Anda bisa menambahkan logika di sini untuk memfilter/mengurutkan hasil
                     console.log('Selected sort option:', value, text);
-                    // Contoh: panggil fungsi untuk me-render ulang kartu shelters
+                    // Contoh: panggil fungsi untuk me-render ulang kartu shelter
                     // renderPetCards(value);
                 });
             });

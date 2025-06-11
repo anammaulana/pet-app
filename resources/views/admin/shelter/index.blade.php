@@ -35,10 +35,10 @@
                         <td style="padding: 10px; text-align: center;">{{ $shelter->alamat }}</td>
                         <td style="padding: 10px; text-align: center;">{{ $shelter->no_telpon }}</td>
                         <td style="padding: 10px; text-align: center;">
-                            <a href="{{ route('shelterAdmin.edit', $shelter->id) }}" style="text-decoration: none;">
+                            <a href="{{ route('shelterAdmin.show', $shelter->id) }}" style="text-decoration: none;">
                                 <i class="fas fa-eye" style="margin-left: 10px; color:blue;"></i>
                             </a>
-                            <a href="{{ route('shelterAdmin.show', $shelter->id) }}" style="text-decoration: none;"> 
+                            <a href="{{ route('shelterAdmin.edit', $shelter->id) }}" style="text-decoration: none;"> 
                                 <i class="fas fa-edit" style="margin-left: 10px; color: #e6a100;"></i>
                             </a>
                             <form action="{{ route('shelterAdmin.destroy', $shelter->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Hapus data ini?')">

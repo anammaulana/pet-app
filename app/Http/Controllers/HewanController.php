@@ -44,7 +44,7 @@ class HewanController extends Controller
 
         HewanModel::create($data);
 
-        return redirect()->route('admin.hewan.index')->with('success', 'Hewan berhasil ditambahkan.');
+        return redirect()->route('hewanAdmin.index')->with('success', 'Hewan berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -96,7 +96,7 @@ class HewanController extends Controller
         }
 
         $hewan->delete();
-        return redirect()->route('admin.hewan.index')->with('success', 'Hewan berhasil dihapus.');
+        return redirect()->route('hewanAdmin.index')->with('success', 'Hewan berhasil dihapus.');
     }
     
 }
