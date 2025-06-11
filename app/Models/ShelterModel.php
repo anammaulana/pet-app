@@ -16,4 +16,9 @@ class ShelterModel extends Model
         'latitude',
         'longitude',
     ];
+
+    public function hewans()
+{
+    return $this->hasMany(HewanModel::class, 'id_shelter');
+}
 }

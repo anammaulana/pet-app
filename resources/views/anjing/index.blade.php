@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temukan Anjing - Pet Saver</title>
+    <title>Temukan anjing - Pet Saver</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
         }
 
         .main-navbar .cat-icon {
-            width: 30px; /* Ukuran ikon kucing */
+            width: 30px; /* Ukuran ikon anjing */
             height: 30px;
             margin-right: 10px;
             vertical-align: middle;
@@ -169,7 +169,15 @@
             width: 150px; /* Lebar dropdown Urutkan dari */
         }
 
-     
+      /* ... CSS yang sudah ada di atas ... */
+
+       /* ... CSS yang sudah ada di atas ... */
+
+       /* ... CSS yang sudah ada di atas ... */
+
+        /* ... Bagian atas CSS Anda ... */
+
+        /* Modifikasi pada .pet-card-grid */
         .pet-card-grid {
             display: grid;
             /* Ini akan mencoba membuat kolom dengan lebar minimal 211px.
@@ -181,6 +189,7 @@
             align-items: start; /* Memastikan item di baris yang sama memiliki tinggi yang sama di bagian atas */
         }
 
+        /* KOTAK (pet-card) tetap pada ukuran yang Anda inginkan */
         .pet-card {
             background-color: #ffffff;
             border-radius: 10px;
@@ -189,11 +198,9 @@
             text-align: center;
             transition: transform 0.2s ease-in-out;
             cursor: pointer;
-
             /* Lebar kotak (kartu) yang Anda inginkan */
             width: 211px;
             height: 320px; /* Contoh tinggi total kartu. Sesuaikan jika perlu. */
-
             display: flex; /* Gunakan flexbox untuk menata gambar dan info secara vertikal */
             flex-direction: column;
         }
@@ -204,16 +211,15 @@
 
         .pet-card img {
             width: 100%; /* Gambar akan mengisi 100% lebar dari kotak induknya (211px) */
-            height: 247px; /* Gambar akan memiliki tinggi tetap 247px */
-            
+            height: 200px; /* Gambar akan memiliki tinggi tetap 247px */
+            /* Ini adalah properti KUNCI agar gambar menyesuaikan bentuk kotak: */
             object-fit: cover; 
-        
-
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             flex-shrink: 0; /* Mencegah gambar mengecil dari tinggi 247px jika konten lain meluap */
         }
 
+        /* Konten info (nama, keturunan) di bawah gambar */
         .pet-info {
             padding: 15px; /* Padding di sekitar teks */
             flex-grow: 1; /* Biarkan pet-info mengambil semua sisa ruang vertikal yang tersedia */
@@ -223,22 +229,6 @@
             align-items: center; /* Pusatkan teks secara horizontal */
 
         }
-
-        .pet-info h3 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 700;
-            color: #333;
-            line-height: 1.2;
-        }
-
-        .pet-info p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: #666;
-            line-height: 1.3;
-        }
-
 
         /* ... CSS Responsif di bawahnya ... */
 
@@ -305,6 +295,9 @@
             }
         }
 
+        /* ... CSS responsif di bawahnya ... */
+
+        /* Pastikan responsif juga disesuaikan */
         @media (max-width: 768px) {
             .pet-card-grid {
                 /* Untuk layar kecil, minmax mungkin perlu lebih kecil dari 211px */
@@ -344,6 +337,8 @@
             }
         }
                 
+
+        /* Dropdown khusus untuk Urutkan dari, meniru desain */
         .custom-dropdown {
             position: absolute;
             top: 100%; /* Di bawah select */
@@ -445,66 +440,58 @@
 
     <div class="main-navbar">
         <div class="title">
-            <img src="images/whitecat.png" alt="Cat Icon" class="cat-icon">
-            Find Cat
+            <img src="img/whitecat.png" alt="Cat Icon" class="cat-icon">
+            Find Dog
         </div>
-        <img src="images/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
+        <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
 
     <div class="content-area">
         <aside class="sidebar">
-            <div class="filter-group">
-                <label for="keturunan">Keturunan</label>
-                <select id="keturunan">
-                    <option value="">Pilih</option>
-                    <option value="british_short_hair">British Short Hair</option>
-                    <option value="persia">Persia</option>
-                    <option value="maine_coon">Maine Coon</option>
-                    </select>
-            </div>
+  <form method="GET" action="{{ route('anjing.index') }}">
+    <div class="filter-group">
+        <label for="keturunan">Keturunan</label>
+        <select name="keturunan" id="keturunan" onchange="this.form.submit()">
+            <option value="">Pilih</option>
+            <option value="British Short Hair" {{ request('keturunan') == 'British Short Hair' ? 'selected' : '' }}>British Short Hair</option>
+            <option value="Persia" {{ request('keturunan') == 'Persia' ? 'selected' : '' }}>Persia</option>
+            <option value="Maine coon" {{ request('keturunan') == 'Maine coon' ? 'selected' : '' }}>Maine Coon</option>
+        </select>
+    </div>
 
-            <div class="filter-group">
-                <label for="usia">Usia</label>
-                <select id="usia">
-                    <option value="">Pilih</option>
-                    <option value="anak_kucing">Anak Kucing</option>
-                    <option value="dewasa">Dewasa</option>
-                    <option value="senior">Senior</option>
-                    </select>
-            </div>
+    <div class="filter-group">
+        <label for="usia">Usia</label>
+        <select name="usia" id="usia" onchange="this.form.submit()">
+            <option value="">Pilih</option>
+            <option value="anak_anjing" {{ request('usia') == 'anak_anjing' ? 'selected' : '' }}>Anak anjing</option>
+            <option value="dewasa" {{ request('usia') == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
+            <option value="senior" {{ request('usia') == 'senior' ? 'selected' : '' }}>Senior</option>
+        </select>
+    </div>
 
-            <div class="filter-group">
-                <label for="jenis_kelamin">Jenis Kelamin</label>
-                <select id="jenis_kelamin">
-                    <option value="">Pilih</option>
-                    <option value="jantan">Jantan</option>
-                    <option value="betina">Betina</option>
-                    </select>
-            </div>
+    <div class="filter-group">
+        <label for="jenis_kelamin">Jenis Kelamin</label>
+        <select name="jenis_kelamin" id="jenis_kelamin" onchange="this.form.submit()">
+            <option value="">Pilih</option>
+            <option value="jantan" {{ request('jenis_kelamin') == 'jantan' ? 'selected' : '' }}>Jantan</option>
+            <option value="betina" {{ request('jenis_kelamin') == 'betina' ? 'selected' : '' }}>Betina</option>
+        </select>
+    </div>
+</form>
+
         </aside>
 
         <section class="results-area">
-            <div class="sort-options">
-                <label for="sort_by">Urutkan dari:</label>
-                <select id="sort_by">
-                    <option value="terdekat">Terdekat</option>
-                    <option value="terjauh">Terjauh</option>
-                    <option value="acak">Acak</option>
-                </select>
-                <div class="custom-dropdown" id="sortDropdown">
-                    <div data-value="terdekat" class="selected">Terdekat</div>
-                    <div data-value="terjauh">Terjauh</div>
-                    <div data-value="acak">Acak</div>
-                </div>
-            </div>
 
-            <div class="pet-card-grid">
-                <div class="pet-card">
-                    <img src="https://awsimages.detik.net.id/community/media/visual/2022/11/18/ilustrasi-anak-anjing_43.jpeg?w=1200" alt="Muhammad Sumbul"> <div class="pet-info">
-                        <h3>Muhammad Sumbul</h3>
-                        <p>British Short Hair</p>
-                    </div>
-                </div>
-               
+
+        @foreach($hewan as $item)
+            <div class="pet-card">
+                <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
+                <h3>{{ $item->nama_hewan }}</h3>
+                <p> {{ $item->keturunan }}</p>
+            
+            </div>
+        @endforeach
+            
         </section>
     </div>
 
@@ -538,7 +525,7 @@
 
                     // Anda bisa menambahkan logika di sini untuk memfilter/mengurutkan hasil
                     console.log('Selected sort option:', value, text);
-                    // Contoh: panggil fungsi untuk me-render ulang kartu kucing
+                    // Contoh: panggil fungsi untuk me-render ulang kartu anjing
                     // renderPetCards(value);
                 });
             });

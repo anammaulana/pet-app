@@ -312,37 +312,36 @@
 
         <section class="search-section">
             <h2 class="search-title">Cari Animal Shelter atau Rescue</h2>
-            <div class="search-inputs">
-                <div class="input-group">
-                    <label for="lokasi">Lokasi</label>
-                    <input type="text" id="lokasi" placeholder="Detail Lokasi">
-                </div>
-                <div class="or-text">atau</div>
+           <form method="GET" action="{{ route('shelters.index') }}" class="search-inputs">
                 <div class="input-group">
                     <label for="nama-shelter">Nama Shelter atau Rescue</label>
-                    <input type="text" id="nama-shelter" placeholder="Nama Shelter atau Rescue">
+                    <input type="text" name="nama" id="nama-shelter" value="{{ request('nama') }}" placeholder="Nama Shelter atau Rescue">
                 </div>
-            </div>
-            <p class="results-count">0 hasil</p>
+           </form>
+            <p class="results-count">{{ $shelters->count() }}  hasil</p>
         </section>
 
         <section class="shelter-results">
             <div class="shelter-card-grid">
-                <div class="shelter-card">
-                    <img src="https://dl5zpyw5k3jeb.cloudfront.net/organization-photos/29822/1/?bust=1511945579" alt="Guam Animals In Need Logo" class="shelter-logo"> <div class="shelter-info">
-                        <h3>Guam Animals In Need</h3>
-                        <p><img src="images/shelteroren.png" alt="Location Icon"> Karangharjo, Glenmore</p> <p><img src="images/phone.png" alt="Phone Icon"> (671) 653-4246</p> <a href="detail shelter.html" class="lihat-hewan-btn">Lihat Hewan</a>
-                    </div>
+         @forelse ($shelters as $shelter)
+            <div class="shelter-card">
+                <img src="{{ $shelter->gambar }}" alt="{{ $shelter->nama_shelter }} Logo" class="shelter-logo">
+                <div class="shelter-info">
+                    <h3>{{ $shelter->nama_shelter }}</h3>
+                <p>
+                    <img src="{{ asset('images/shelteroren.png') }}" alt="Location Icon">
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($shelter->alamat) }}" target="_blank" style="color: #555; text-decoration: none;">
+                        {{ $shelter->alamat }}
+                    </a>
+                </p>
+                    <p><img src="{{ asset('images/phone.png') }}" alt="Phone Icon"> {{ $shelter->no_telpon }}</p>
+                    <a href="{{ route('shelters.show', $shelter->id) }}" class="lihat-hewan-btn">Lihat Hewan</a>
                 </div>
+            </div>
+        @empty
+            <p class="results-count">Tidak ada shelter ditemukan.</p>
+        @endforelse
 
-                <div class="shelter-card">
-                    <img src="https://dl5zpyw5k3jeb.cloudfront.net/organization-photos/50043/1/?bust=1584035200" alt="Kauai SPCA Logo" class="shelter-logo"> <div class="shelter-info">
-                        <h3>Kauai SPCA</h3>
-                        <p><img src="images/shelteroren.png" alt="Location Icon"> Karangharjo, Glenmore</p>
-                        <p><img src="images/phone.png" alt="Phone Icon"> (671) 653-4246</p>
-                        <a href="detail shelter.html" class="lihat-hewan-btn">Lihat Hewan</a>
-                    </div>
-                </div>
                 </div>
         </section>
     </div>

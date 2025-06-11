@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temukan kelinci - Pet Saver</title>
+    <title>Temukan shelters - Pet Saver</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
         }
 
         .main-navbar .cat-icon {
-            width: 30px; /* Ukuran ikon kelinci */
+            width: 30px; /* Ukuran ikon shelters */
             height: 30px;
             margin-right: 10px;
             vertical-align: middle;
@@ -441,13 +441,13 @@
     <div class="main-navbar">
         <div class="title">
             <img src="img/whitecat.png" alt="Cat Icon" class="cat-icon">
-            Find Dog
+            Find Shelter & Rescue
         </div>
         <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
 
     <div class="content-area">
         <aside class="sidebar">
-  <form method="GET" action="{{ route('kelinci.index') }}">
+ <form method="GET" action="{{ route('shelters.show', $shelters->id) }}">
     <div class="filter-group">
         <label for="keturunan">Keturunan</label>
         <select name="keturunan" id="keturunan" onchange="this.form.submit()">
@@ -462,7 +462,7 @@
         <label for="usia">Usia</label>
         <select name="usia" id="usia" onchange="this.form.submit()">
             <option value="">Pilih</option>
-            <option value="anak_kelinci" {{ request('usia') == 'anak_kelinci' ? 'selected' : '' }}>Anak kelinci</option>
+            <option value="anak_shelters" {{ request('usia') == 'anak_shelters' ? 'selected' : '' }}>Anak shelters</option>
             <option value="dewasa" {{ request('usia') == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
             <option value="senior" {{ request('usia') == 'senior' ? 'selected' : '' }}>Senior</option>
         </select>
@@ -483,7 +483,7 @@
         <section class="results-area">
 
 
-        @foreach($hewan as $item)
+        @foreach($hewans as $item)
             <div class="pet-card">
                 <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
                 <h3>{{ $item->nama_hewan }}</h3>
@@ -525,7 +525,7 @@
 
                     // Anda bisa menambahkan logika di sini untuk memfilter/mengurutkan hasil
                     console.log('Selected sort option:', value, text);
-                    // Contoh: panggil fungsi untuk me-render ulang kartu kelinci
+                    // Contoh: panggil fungsi untuk me-render ulang kartu shelters
                     // renderPetCards(value);
                 });
             });

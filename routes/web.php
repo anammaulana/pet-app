@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\anjingController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HewanController;
 use App\Http\Controllers\kategoriController;
+use App\Http\Controllers\kelinciController;
 use App\Http\Controllers\kucingController;
+use App\Http\Controllers\marmutController;
 use App\Http\Controllers\ShelterController;
+use App\Http\Controllers\shelterhomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,25 +34,16 @@ Route::middleware(['auth', 'role:admin,customer'])->group(function () {
     
    Route::resource('kucing', kucingController::class);
 
-    Route::get('/anjing', function () {
-        return view('anjing.index');
-    })->name('anjing');
+     Route::resource('anjing', anjingController::class);
 
-    Route::get('/shelter_rescue', function () {
-        return view('shelter_rescue.index');
-    })->name('shelter_rescue');
+    Route::resource('kelinci', kelinciController::class);
 
-    Route::get('/kelinci', function () {
-        return view('kelinci.index');
-    })->name('kelinci');
+     Route::resource('marmut', marmutController::class);
 
-    Route::get('/marmut', function () {
-        return view('marmut.index');
-    })->name('marmut');
+    Route::resource('hamster', marmutController::class);
 
-    Route::get('/hamster', function () {
-        return view('hamster.index');
-    })->name('hamster');
+  Route::resource('shelters', shelterhomeController::class);
+
 
     Route::get('/tips-memilih-hewan-peliharaan', function () {
         return view('tips.tips-memilih-hewan-peliharaan');
