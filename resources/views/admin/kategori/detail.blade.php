@@ -13,7 +13,7 @@
             <div>
                 <label for="nama" style="font-weight: 300; margin-bottom: 6px; display: block;">Nama Kategori</label>
                 <input type="text" name="nama" id="nama" class="form-control" readonly
-                    style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f8f9fa;"
+                    style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; background-color: #f8f9fa;"
                     value="{{ $kategori->nama }}" />
             </div>
         </div>

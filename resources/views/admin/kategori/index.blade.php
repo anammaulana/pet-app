@@ -10,7 +10,7 @@
             </div>
            <div style="display: flex; gap: 10px;">
                
-                <a href="{{route('kategoriAdmin.create')}}" style="padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">
+                <a href="{{route('kategoriAdmin.create')}}" style="padding: 10px 15px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">
                     Tambah
                 </a>
             </div>
@@ -30,10 +30,10 @@
                         <td style="padding: 10px; text-align: center;">{{ $index + 1 }}</td>
                         <td style="padding: 10px; text-align: center;">{{ $kategori->nama }}</td>
                         <td style="padding: 10px; text-align: center;">
-                          <a href="{{ route('kategoriAdmin.edit', $kategori->id) }}">
+                          <a href="{{ route('kategoriAdmin.show', $kategori->id) }}" style="text-decoration: none;">
                              <i class="fas fa-eye" style="margin-left: 10px; color:blue;"></i>
                                 </a>    
-                          <a href="{{ route('kategoriAdmin.show', $kategori->id) }}">
+                          <a href="{{ route('kategoriAdmin.edit', $kategori->id) }}" style="text-decoration: none;">
                                 <i class="fas fa-edit" style="margin-left: 10px; color: #e6a100;"></i>
                             </a>
                             <form action="{{ route('kategoriAdmin.destroy', $kategori->id) }}" method="POST" style="display:inline;"

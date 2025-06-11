@@ -16,7 +16,7 @@
             <div>
                 <label for="nama_shelter" style="display: block; margin-bottom: 5px;">Nama Shelter</label>
                 <input type="text" name="nama_shelter" id="nama_shelter"
-                       class="form-control" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
+                       class="form-control" style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
                        value="{{ old('nama_shelter') }}" required>
                 @error('nama_shelter')
                     <span style="color: red;">{{ $message }}</span>
@@ -26,7 +26,7 @@
             <div>
                 <label for="alamat" style="display: block; margin-bottom: 5px;">Alamat</label>
                 <textarea name="alamat" id="alamat"
-                          class="form-control" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" required>{{ old('alamat') }}</textarea>
+                          class="form-control" style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" required>{{ old('alamat') }}</textarea>
                 @error('alamat')
                     <span style="color: red;">{{ $message }}</span>
                 @enderror
@@ -35,7 +35,7 @@
             <div>
                 <label for="no_telpon" style="display: block; margin-bottom: 5px;">No Telpon</label>
                 <input type="text" name="no_telpon" id="no_telpon"
-                       class="form-control" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
+                       class="form-control" style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
                        value="{{ old('no_telpon') }}" required>
                 @error('no_telpon')
                     <span style="color: red;">{{ $message }}</span>

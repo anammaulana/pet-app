@@ -34,10 +34,10 @@
                         <td style="padding: 10px; text-align: center;">{{ $hewan->kategori->nama }}</td>
                         <td style="padding: 10px; text-align: center;">{{ ucfirst($hewan->usia) }}</td>
                         <td style="padding: 10px; text-align: center;">
-                            <a href="{{ route('hewanAdmin.show', $hewan->id) }}">
+                            <a href="{{ route('hewanAdmin.show', $hewan->id) }}" style="text-decoration: none;">
                                 <i class="fas fa-eye" style="margin-left: 10px; color:blue;"></i>
                             </a>
-                            <a href="{{ route('hewanAdmin.edit', $hewan->id) }}">
+                            <a href="{{ route('hewanAdmin.edit', $hewan->id) }}" style="text-decoration: none;">
                                 <i class="fas fa-edit" style="margin-left: 10px; color: #e6a100;"></i>
                             </a>
                             <form action="{{ route('hewanAdmin.destroy', $hewan->id) }}" method="POST" style="display:inline;"

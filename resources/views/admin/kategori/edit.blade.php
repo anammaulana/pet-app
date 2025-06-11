@@ -18,7 +18,7 @@
                 <div>
                     <label for="nama" style="font-weight: 300; margin-bottom: 6px; display: block;">Nama Kategori</label>
                     <input type="text" name="nama" id="nama" class="form-control"
-                        style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
+                        style="width: 50%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; "
                         value="{{ old('nama', $kategori->nama) }}" required />
                     @error('nama')
                         <span style="color: red;">{{ $message }}</span>
@@ -30,7 +30,7 @@
         <!-- Tombol -->
         <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
             <a href="{{ route('kategoriAdmin.index') }}" class="btn"
-                style="padding: 10px 20px; background-color: red; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
+                style="padding: 10px 20px; background-color: #6c757d; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
                 Batal
             </a>
             <button type="submit" class="btn btn-primary"
