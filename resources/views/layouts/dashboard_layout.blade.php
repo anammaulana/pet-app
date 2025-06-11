@@ -103,18 +103,25 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Pet Saver</h3>
-        <a href="{{ route('dashboardAdmin') }}" class="{{ Request::is('dashboardAdmin*') ? 'active' : '' }}">
-            <i class="fas fa-border-all"></i> Dashboard
-        </a>
-        <a href="{{ route('kategoriAdmin.index') }}" class="{{ Request::is('kategoriAdmin*') ? 'active' : '' }}">
-            <i class="fas fa-users"></i> Kategori Hewan
-        </a>
-        <a href="{{ route('shelterAdmin.index') }}" class="{{ Request::is('shelterAdmin*') ? 'active' : '' }}">
-            <i class="fas fa-clipboard-list"></i> Shelter & Rescue
-        </a>
-        <a href="{{ route('hewanAdmin.index') }}" class="{{ Request::is('hewanAdmin*') ? 'active' : '' }}">
-            <i class="fas fa-paw"></i> Hewan
-        </a>
+        <a href="{{ route('dashboardAdmin') }}"
+       class="{{ request()->routeIs('dashboardAdmin') ? 'active' : '' }}">
+        <i class="fas fa-border-all"></i> Dashboard
+    </a>
+
+    <a href="{{ route('kategoriAdmin.index') }}"
+       class="{{ request()->routeIs('kategoriAdmin.*') ? 'active' : '' }}">
+        <i class="fas fa-users"></i> Kategori Hewan
+    </a>
+
+    <a href="{{ route('shelterAdmin.index') }}"
+       class="{{ request()->routeIs('shelterAdmin.*') ? 'active' : '' }}">
+        <i class="fas fa-clipboard-list"></i> Shelter & Rescue
+    </a>
+
+    <a href="{{ route('hewanAdmin.index') }}"
+       class="{{ request()->routeIs('hewanAdmin.*') ? 'active' : '' }}">
+        <i class="fas fa-paw"></i> Hewan
+    </a>
 
     </div>
 

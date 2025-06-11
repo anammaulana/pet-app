@@ -103,7 +103,7 @@
         <!-- Tombol -->
         <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
             <a href="{{ route('shelterAdmin.index') }}" class="btn-utama btn-batal">Batal</a>
-            <button type="submit" class="btn-utama btn-simpan">Perbarui</button>
+            <button type="submit" class="btn-utama btn-simpan">Update</button>
         </div>
 
     </form>

@@ -99,15 +99,13 @@ class HewanController extends Controller
     
         return redirect()->route('hewanAdmin.index')->with('success', 'Data hewan berhasil diperbarui.');
     }
-    
 
-    public function destroy(HewanModel $hewan)
+
+    public function destroy($id)
     {
-        if ($hewan->gambar) {
-            \Storage::disk('public')->delete($hewan->gambar);
-        }
-
+        $hewan = HewanModel::findOrFail($id);
         $hewan->delete();
+
         return redirect()->route('hewanAdmin.index')->with('success', 'Hewan berhasil dihapus.');
     }
 
