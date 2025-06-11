@@ -297,8 +297,8 @@
 </head>
 <body>
      <div class="breadcrumb-bar">
-            <a href="{{route('home')}}">Home</a> 
-            <span>></span>
+            <a href="{{route('home')}}">Home </a> 
+            <span>>  Shelter atau Rescue</span>
         </div>
     <div class="main-content">
       
