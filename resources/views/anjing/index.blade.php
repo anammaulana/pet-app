@@ -477,7 +477,13 @@
     </style>
 </head>
 <body>
-
+    <header>
+        <div class="brand">Pet Saver</div>
+        <div class="nav-right">
+            <button class="instagram-btn">Instagram</button>
+            <!-- <a href="#">Sign In</a> -->
+        </div>
+    </header>
 
     <div class="main-navbar">
         <div class="title">

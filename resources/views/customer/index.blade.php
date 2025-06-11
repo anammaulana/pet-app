@@ -454,13 +454,13 @@
         </div>
 
         <div class="icons-container">
-            <a href="{{ route('kucing') }}" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('kucing.index') }}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="/img/iconkucing.png" alt="Kucing icon">
                     <p>Kucing</p>
                 </div>
             </a>
-            <a href="{{ route('anjing')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('anjing.index')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="img/iconanjing.png" alt="Anjing icon">
                     <p>Anjing</p>
@@ -470,7 +470,7 @@
                 <img src="img/paw.png" alt="Hewan lainnya icon">
                 <p>Hewan Lainnya</p>
             </div>
-            <a href="{{route('shelter_rescue')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{route('shelters.index')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="img/rescue.png" alt="Shelter & Rescue icon">
                     <p>Shelter & Rescue</p>
@@ -483,19 +483,19 @@
         <button class="back-button" id="backBtn">←</button>
         <div class="jenis-hewan-title">Jenis hewan peliharaan apa yang kamu cari?</div>
         <div class="hewan-lainnya-container">
-            <a href="{{route('hamster')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{route('hamster.index')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="img/hamster.png" alt="hamster icon">
                     <p>Hamster</p>
                 </div>
             </a>
-            <a href="{{route('marmut')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{route('marmut.index')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="{{ asset('img/marmut.png') }}" alt="marmut icon">
                     <p>Marmut</p>
                 </div>
             </a>
-            <a href="{{route('kelinci')}}" style="text-decoration: none; color: inherit;">
+            <a href="{{route('kelinci.index')}}" style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                     <img src="img/kelinci.png" alt="Kelinci icon">
                     <p>Kelinci</p>

@@ -97,7 +97,7 @@
   </header>
 
   <div class="breadcrumb">
-    <a href="index.html">Home</a> &gt; Tips Memilih Hewan Peliharaan
+    <a href="{{route('home')}}">Home</a> &gt; Tips Memilih Hewan Peliharaan
   </div>
 
   <main>

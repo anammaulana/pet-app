@@ -6,12 +6,12 @@ use App\Models\HewanModel;
 use App\Models\kategoriModel;
 use App\Models\ShelterModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
 
 
 class HewanController extends Controller
 {
-     public function index()
+    public function index()
     {
         $hewans = HewanModel::with(['kategori', 'shelter'])->latest()->get();
         return view('admin.hewan.index', compact('hewans'));
@@ -49,15 +49,17 @@ class HewanController extends Controller
 
     public function show($id)
     {
-         $hewan = HewanModel::findOrFail($id);
-        return view('admin.hewan.detail', compact('hewan'));
+        $hewan = HewanModel::findOrFail($id);
+        $kategoris = kategoriModel::all();
+        $shelters = ShelterModel::all();
+        return view('admin.hewan.detail', compact('hewan', 'kategoris', 'shelters'));
     }
 
     public function edit($id)
     {
         $kategoris = kategoriModel::all();
         $shelters = ShelterModel::all();
-         $hewan = HewanModel::findOrFail($id);
+        $hewan = HewanModel::findOrFail($id);
         return view('admin.hewan.edit', compact('hewan', 'kategoris', 'shelters'));
     }
 
@@ -98,5 +100,5 @@ class HewanController extends Controller
         $hewan->delete();
         return redirect()->route('hewanAdmin.index')->with('success', 'Hewan berhasil dihapus.');
     }
-    
+
 }

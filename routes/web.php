@@ -29,12 +29,10 @@ Route::resource('hewanAdmin', HewanController::class);
 
 });
 
-Route::middleware(['auth', 'role:admin,customer'])->group(function () {
+Route::middleware(['auth', 'role:customer,admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'customer']);
 
-    Route::get('/home', [DashboardController::class, 'home'])->name('home');
-    
-   Route::resource('kucing', kucingController::class);
+    Route::resource('kucing', kucingController::class);
 
      Route::resource('anjing', anjingController::class);
 
@@ -61,15 +59,16 @@ Route::middleware(['auth', 'role:admin,customer'])->group(function () {
 });
 
 // Auth Routes
-Route::middleware('guest')->group(function () {
+
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [DashboardController::class, 'home'])->name('home');

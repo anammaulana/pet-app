@@ -91,7 +91,7 @@
   </header>
 
   <div class="breadcrumb">
-    <a href="index.html">Home</a> &gt; Tips Merawat Anak Kucing
+    <a href="{{route('home')}}">Home</a> &gt; Tips Merawat Anak Kucing
   </div>
 
   <main>
