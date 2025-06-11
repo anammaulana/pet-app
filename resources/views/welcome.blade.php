@@ -426,25 +426,30 @@
 
 <body>
     <div class="toko">
-        <img class="background-1" src="img/background.png" alt="Pet background">
-        <div class="rectangle-97"></div>
-        <div class="instagram">Instagram</div>
-        <div class="pet-saver">Pet Saver</div>
-        <!-- @auth
-            Hai, {{ Auth::user()->name }} |
-        @endauth -->
-        <div class="sign-in">
-            @guest
-                <a href="{{ route('register') }}">Sign In</a>
-            @else
-                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
-                        Logout
-                    </button>
-                </form>
-            @endguest
-        </div>
+       <img class="background-1" src="img/background.png" alt="Pet background">
+<div class="rectangle-97"></div>
+<div class="instagram">Instagram</div>
+<div class="pet-saver">Pet Saver</div>
+
+<div class="sign-in">
+    @guest
+        <a href="{{ route('register') }}">Sign In</a>
+    @else
+        @if(Auth::user()->role === 'admin')
+            <!-- Tombol Dashboard khusus admin -->
+            <a href="{{ route('dashboardAdmin') }}" style="margin-right: 10px;">Dashboard</a>
+        @endif
+
+        <!-- Tombol Logout -->
+        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+                Logout
+            </button>
+        </form>
+    @endguest
+</div>
+
         <div class="temukan-sahabatmu-di-pet-saver">Temukan Sahabatmu di Pet Saver!</div>
         <div class="cari-hewan-peliharaan-dari-shelter-terdekat-dari-lokasi-kamu">Cari hewan peliharaan dari shelter terdekat dari lokasi kamu</div>
         <div class="rectangle-98">
@@ -454,7 +459,7 @@
         </div>
 
         <div class="icons-container">
-            <a  href="{{ route('kucing') }}"style="text-decoration: none; color: inherit;">
+            <a  href="{{ route('kucing.index') }}"style="text-decoration: none; color: inherit;">
                 <div class="icon-box">
                    <img src="/img/iconkucing.png" alt="Kucing icon"> <p>Kucing</p>
                 </div>

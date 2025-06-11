@@ -2,27 +2,33 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HewanController;
+use App\Http\Controllers\kategoriController;
+use App\Http\Controllers\kucingController;
+use App\Http\Controllers\ShelterController;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::middleware(['auth', 'role:admin'])->group(function () {
-//     Route::get('/admin-dashboard', fn() => 'Admin only area');
-// });
-
-// Route::middleware(['auth', 'role:customer'])->group(function () {
-//     Route::get('/dashboard', fn() => 'Dashboard for Customer');
-// });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin-dashboard', [DashboardController::class, 'admin']);
+    
+Route::get('/admin-dashboard', [DashboardController::class, 'admin'])->name('dashboardAdmin');
+
+Route::get('/home', [DashboardController::class, 'home'])->name('home');
+
+Route::resource('kategoriAdmin', kategoriController::class);
+
+Route::resource('shelterAdmin', ShelterController::class);
+
+Route::resource('hewanAdmin', HewanController::class);
+
+
 });
 
-Route::middleware(['auth', 'role:customer'])->group(function () {
+Route::middleware(['auth', 'role:admin,customer'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'customer']);
     
-    Route::get('/kucing', function () {
-        return view('kucing.index');
-    })->name('kucing');
+   Route::resource('kucing', kucingController::class);
 
     Route::get('/anjing', function () {
         return view('anjing.index');
@@ -70,20 +76,3 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/admin-dashboard', function () {
-//     return view('dashboard-admin');
-// })->name('dashboardAdmin');
-
-Route::get('/admin-hewan', function () {
-    return view('admin.hewan.index');
-})->name('hewanAdmin');
-
-Route::get('/admin-kategori', function () {
-    return view('admin.kategori.index');
-})->name('kategoriAdmin');
-
-Route::get('/admin-shelter', function () {
-    return view('admin.shelter.index');
-})->name('shelterAdmin');
-
-

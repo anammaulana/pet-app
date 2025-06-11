@@ -5,50 +5,43 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div>
-                <h2>Kategori Hewan</h2>
-                <p>List data kategori hewa n</p>
+                <h2>Data Hewan</h2>
+                <p>List data hewan yang tersedia</p>
             </div>
-           <div style="display: flex; gap: 10px;">
-               <form method="GET" action="#" style="display: flex; gap: 10px;">
-                <input type="text" name="search" placeholder="Cari dokter..." value="#"
-                    style="padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px;">
-                <button type="submit" style="padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                    Cari
-                </button>
-                <a href="#" style="padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">
-                    Tambah
-                </a>
-            </form>
+            <div style="display: flex; gap: 10px;">
+              
+                    <a href="{{ route('hewanAdmin.create') }}" style="padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;">
+                        Tambah
+                    </a>
             </div>
         </div>
 
         <table style="width: 100%; border-collapse: collapse;">
             <thead>
                 <tr style="background-color: #f0f0f0;">
-                    <th style="padding: 10px; ">No</th>
-                    <th style="padding: 10px; ">Nama Hewan</th>
-                    <th style="padding: 10px; ">Kategori</th>
-                    <th style="padding: 10px; ">Usia</th>
-                    <th style="padding: 10px; ">Action</th>
+                    <th style="padding: 10px;">No</th>
+                    <th style="padding: 10px;">Nama Hewan</th>
+                    <th style="padding: 10px;">Kategori</th>
+                    <th style="padding: 10px;">Usia</th>
+                    <th style="padding: 10px;">Action</th>
                 </tr>
             </thead>
             <tbody>
-                {{-- @forelse ($dokters as $index => $dokter)
+                @forelse ($hewans as $index => $hewan)
                     <tr>
                         <td style="padding: 10px; text-align: center;">{{ $index + 1 }}</td>
-                        <td style="padding: 10px; text-align: center;">{{ $dokter->id_dokter }}</td>
-                        <td style="padding: 10px; text-align: center;">{{ $dokter->nama }}</td>
-                        <td style="padding: 10px; text-align: center;">{{ $dokter->spesialisasi }}</td>
-                        <td style="padding: 10px; text-align: center;">{{ $dokter->jadwal_praktik }}</td>
+                        <td style="padding: 10px; text-align: center;">{{ $hewan->nama_hewan }}</td>
+                        <td style="padding: 10px; text-align: center;">{{ $hewan->kategori->nama }}</td>
+                        <td style="padding: 10px; text-align: center;">{{ ucfirst($hewan->usia) }}</td>
                         <td style="padding: 10px; text-align: center;">
-                            <a href="{{ route('dokters.show', $dokter->id_dokter) }}">
+                            <a href="{{ route('hewanAdmin.show', $hewan->id) }}">
                                 <i class="fas fa-eye" style="margin-left: 10px; color:blue;"></i>
                             </a>
-                            <a href="{{ route('dokters.edit', $dokter->id_dokter) }}">
+                            <a href="{{ route('hewanAdmin.edit', $hewan->id) }}">
                                 <i class="fas fa-edit" style="margin-left: 10px; color: #e6a100;"></i>
                             </a>
-                            <form action="{{ route('dokters.destroy', $dokter->id_dokter) }}" method="POST" style="display:inline;"
-                                onsubmit="return confirm('Hapus data ini?')">
+                            <form action="{{ route('hewanAdmin.destroy', $hewan->id) }}" method="POST" style="display:inline;"
+                                onsubmit="return confirm('Hapus data hewan ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" style="outline: none; border: none; background: none; cursor: pointer;">
@@ -57,11 +50,11 @@
                             </form>
                         </td>
                     </tr>
-                    @empty
+                @empty
                     <tr>
-                        <td colspan="7">Belum ada data dokter.</td>
+                        <td colspan="5" style="text-align: center; padding: 20px;">Belum ada data hewan.</td>
                     </tr>
-                @endforelse --}}
+                @endforelse
             </tbody>
         </table>
     </div>

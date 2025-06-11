@@ -103,18 +103,19 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Pet Saver</h3>
-        <a href="#" class="#">
+          <a href="{{ route('dashboardAdmin') }}" class="{{ Request::is('dashboardAdmin*') ? 'active' : '' }}">
             <i class="fas fa-border-all"></i> Dashboard
         </a>
-        <a href="#" class="#">
+        <a href="{{ route('kategoriAdmin.index') }}" class="{{ Request::is('kategoriAdmin*') ? 'active' : '' }}">
             <i class="fas fa-users"></i> Kategori Hewan
         </a>
-        <a href="#" class="#">
-            <i class="fas fa-user-md"></i> Hewan
-        </a>
-        <a href="#" class="#">
+        <a href="{{ route('shelterAdmin.index') }}" class="{{ Request::is('shelterAdmin*') ? 'active' : '' }}">
             <i class="fas fa-clipboard-list"></i> Shelter & Rescue
         </a>
+       <a href="{{ route('hewanAdmin.index') }}" class="{{ Request::is('hewanAdmin*') ? 'active' : '' }}">
+           <i class="fas fa-paw"></i> Hewan
+        </a>
+  
     </div>
 
     <!-- Main Content -->
@@ -122,14 +123,18 @@
         <!-- Navbar -->
         <div class="navbar">
             <div class="user-info">
-                Hai, {{ Auth::user()->name ?? 'User' }}
-        
-                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+            Hai,Admin
+            <a href="{{route('home')}}" 
+               style="margin-left: 20px; text-decoration: none; color: inherit;">
+                <i class="fas fa-home" style="margin-right: 5px;"></i> Home
+            </a>
+                <form method="POST" action="#" style="display: inline;">
                     @csrf
                     <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
                         <i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i> Logout
                     </button>
                 </form>
+
             </div>
         </div>
 

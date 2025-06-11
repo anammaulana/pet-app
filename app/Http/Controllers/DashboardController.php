@@ -15,4 +15,9 @@ class DashboardController extends Controller
     {
         return view('customer.index');
     }
+
+     public function home()
+    {
+        return view('welcome');
+    }
 }
