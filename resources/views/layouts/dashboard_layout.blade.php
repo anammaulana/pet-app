@@ -103,7 +103,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Pet Saver</h3>
-          <a href="{{ route('dashboardAdmin') }}" class="{{ Request::is('dashboardAdmin*') ? 'active' : '' }}">
+        <a href="{{ route('dashboardAdmin') }}" class="{{ Request::is('dashboardAdmin*') ? 'active' : '' }}">
             <i class="fas fa-border-all"></i> Dashboard
         </a>
         <a href="{{ route('kategoriAdmin.index') }}" class="{{ Request::is('kategoriAdmin*') ? 'active' : '' }}">
@@ -112,40 +112,42 @@
         <a href="{{ route('shelterAdmin.index') }}" class="{{ Request::is('shelterAdmin*') ? 'active' : '' }}">
             <i class="fas fa-clipboard-list"></i> Shelter & Rescue
         </a>
-       <a href="{{ route('hewanAdmin.index') }}" class="{{ Request::is('hewanAdmin*') ? 'active' : '' }}">
-           <i class="fas fa-paw"></i> Hewan
+        <a href="{{ route('hewanAdmin.index') }}" class="{{ Request::is('hewanAdmin*') ? 'active' : '' }}">
+            <i class="fas fa-paw"></i> Hewan
         </a>
-  
+
     </div>
 
     <!-- Main Content -->
-  <div class="main-content" >
+    <div class="main-content">
 
-    <!-- Navbar -->
-    <div class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);  margin-bottom: 30px;">
-        <div class="user-info" style="font-size: 18px; color: #333;">
-            Hai, Admin
-            <a href="{{ route('home') }}" 
-               style="margin-left: 20px; text-decoration: none; color: #007bff; font-weight: 500;">
-                <i class="fas fa-home" style="margin-right: 6px;"></i> Home
-            </a>
+        <!-- Navbar -->
+        <div class="navbar"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);  margin-bottom: 30px;">
+            <div class="user-info" style="font-size: 18px; color: #333;">
+                Hai, Admin
+                <a href="{{ route('home') }}"
+                    style="margin-left: 20px; text-decoration: none; color: #007bff; font-weight: 500;">
+                    <i class="fas fa-home" style="margin-right: 6px;"></i> Home
+                </a>
+            </div>
+
+            <form method="POST" action="{{ route('logout') }}" style="margin: 0;">
+                @csrf
+                <button type="submit"
+                    style="background: none; border: none; color: #dc3545; cursor: pointer; font-size: 16px;">
+                    <i class="fas fa-sign-out-alt" style="margin-right: 6px;"></i> Logout
+                </button>
+            </form>
+
         </div>
 
-        <form method="POST" action="#" style="margin: 0;">
-            @csrf
-            <button type="submit" 
-                    style="background: none; border: none; color: #dc3545; cursor: pointer; font-size: 16px;">
-                <i class="fas fa-sign-out-alt" style="margin-right: 6px;"></i> Logout
-            </button>
-        </form>
-    </div>
+        <!-- Content Section -->
+        <div class="content">
+            @yield('content')
+        </div>
 
-    <!-- Content Section -->
-    <div class="content">
-        @yield('content')
     </div>
-
-</div>
 
 </body>
 

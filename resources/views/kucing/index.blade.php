@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,8 @@
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Warna background abu-abu muda */
+            background-color: #f3f4f6;
+            /* Warna background abu-abu muda */
             color: #1f2937;
             display: flex;
             flex-direction: column;
@@ -58,7 +60,8 @@
         }
 
         .main-navbar {
-            background-color: #ec8600; /* Warna oranye seperti di desain */
+            background-color: #ec8600;
+            /* Warna oranye seperti di desain */
             padding: 15px 32px;
             display: flex;
             align-items: center;
@@ -68,7 +71,8 @@
         }
 
         .main-navbar .cat-icon {
-            width: 30px; /* Ukuran ikon kucing */
+            width: 30px;
+            /* Ukuran ikon kucing */
             height: 30px;
             margin-right: 10px;
             vertical-align: middle;
@@ -82,16 +86,19 @@
         }
 
         .main-navbar .right-icon {
-            width: 40px; /* Ukuran ikon di kanan atas */
+            width: 40px;
+            /* Ukuran ikon di kanan atas */
             height: 40px;
             object-fit: contain;
         }
 
         .content-area {
             display: flex;
-            flex: 1; /* Agar mengambil sisa ruang vertikal */
+            flex: 1;
+            /* Agar mengambil sisa ruang vertikal */
             padding: 20px 32px;
-            gap: 30px; /* Jarak antara sidebar dan konten utama */
+            gap: 30px;
+            /* Jarak antara sidebar dan konten utama */
         }
 
         .sidebar {
@@ -99,9 +106,11 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
-            width: 250px; /* Lebar sidebar */
+            width: 250px;
+            /* Lebar sidebar */
             min-width: 200px;
-            height: fit-content; /* Agar tingginya sesuai dengan konten */
+            height: fit-content;
+            /* Agar tingginya sesuai dengan konten */
         }
 
         .filter-group {
@@ -123,10 +132,12 @@
             font-size: 14px;
             background-color: #f9f9f9;
             cursor: pointer;
-            -webkit-appearance: none; /* Remove default arrow on select */
+            -webkit-appearance: none;
+            /* Remove default arrow on select */
             -moz-appearance: none;
             appearance: none;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M208.5%2088.5L128%20169.1L47.5%2088.5L33.9%20102.1L128%20196.2L222.1%20102.1z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M208.5%2088.5L128%20169.1L47.5%2088.5L33.9%20102.1L128%20196.2L222.1%20102.1z%22%2F%3E%3C%2Fsvg%3E');
+            /* Custom arrow */
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 16px;
@@ -142,7 +153,8 @@
             display: flex;
             justify-content: flex-end;
             margin-bottom: 20px;
-            position: relative; /* Untuk dropdown absolute */
+            position: relative;
+            /* Untuk dropdown absolute */
         }
 
         .sort-options label {
@@ -166,14 +178,15 @@
             background-repeat: no-repeat;
             background-position: right 8px center;
             background-size: 16px;
-            width: 150px; /* Lebar dropdown Urutkan dari */
+            width: 150px;
+            /* Lebar dropdown Urutkan dari */
         }
 
-      /* ... CSS yang sudah ada di atas ... */
+        /* ... CSS yang sudah ada di atas ... */
 
-       /* ... CSS yang sudah ada di atas ... */
+        /* ... CSS yang sudah ada di atas ... */
 
-       /* ... CSS yang sudah ada di atas ... */
+        /* ... CSS yang sudah ada di atas ... */
 
         /* ... Bagian atas CSS Anda ... */
 
@@ -183,25 +196,31 @@
             /* Ini akan mencoba membuat kolom dengan lebar minimal 211px.
             Jika lebar kartu diatur ke 211px secara eksplisit, maka ini akan sangat cocok. */
             grid-template-columns: repeat(auto-fit, minmax(211px, 1fr));
-            gap: 25px; /* Jarak antara kartu */
+            gap: 25px;
+            /* Jarak antara kartu */
             flex: 1;
-            justify-content: center; /* Memusatkan grid jika ada ruang kosong di sisi */
-            align-items: start; /* Memastikan item di baris yang sama memiliki tinggi yang sama di bagian atas */
+            justify-content: center;
+            /* Memusatkan grid jika ada ruang kosong di sisi */
+            align-items: start;
+            /* Memastikan item di baris yang sama memiliki tinggi yang sama di bagian atas */
         }
 
         /* KOTAK (pet-card) tetap pada ukuran yang Anda inginkan */
         .pet-card {
             background-color: #ffffff;
             border-radius: 10px;
-            overflow: hidden; /* Penting untuk menyembunyikan bagian gambar yang meluap jika object-fit: cover */
+            overflow: hidden;
+            /* Penting untuk menyembunyikan bagian gambar yang meluap jika object-fit: cover */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.2s ease-in-out;
             cursor: pointer;
             /* Lebar kotak (kartu) yang Anda inginkan */
             width: 211px;
-            height: 320px; /* Contoh tinggi total kartu. Sesuaikan jika perlu. */
-            display: flex; /* Gunakan flexbox untuk menata gambar dan info secara vertikal */
+            height: 320px;
+            /* Contoh tinggi total kartu. Sesuaikan jika perlu. */
+            display: flex;
+            /* Gunakan flexbox untuk menata gambar dan info secara vertikal */
             flex-direction: column;
         }
 
@@ -210,23 +229,30 @@
         }
 
         .pet-card img {
-            width: 100%; /* Gambar akan mengisi 100% lebar dari kotak induknya (211px) */
-            height: 200px; /* Gambar akan memiliki tinggi tetap 247px */
+            width: 100%;
+            /* Gambar akan mengisi 100% lebar dari kotak induknya (211px) */
+            height: 200px;
+            /* Gambar akan memiliki tinggi tetap 247px */
             /* Ini adalah properti KUNCI agar gambar menyesuaikan bentuk kotak: */
-            object-fit: cover; 
+            object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            flex-shrink: 0; /* Mencegah gambar mengecil dari tinggi 247px jika konten lain meluap */
+            flex-shrink: 0;
+            /* Mencegah gambar mengecil dari tinggi 247px jika konten lain meluap */
         }
 
         /* Konten info (nama, keturunan) di bawah gambar */
         .pet-info {
-            padding: 15px; /* Padding di sekitar teks */
-            flex-grow: 1; /* Biarkan pet-info mengambil semua sisa ruang vertikal yang tersedia */
+            padding: 15px;
+            /* Padding di sekitar teks */
+            flex-grow: 1;
+            /* Biarkan pet-info mengambil semua sisa ruang vertikal yang tersedia */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Pusatkan teks secara vertikal dalam area ini */
-            align-items: center; /* Pusatkan teks secara horizontal */
+            justify-content: center;
+            /* Pusatkan teks secara vertikal dalam area ini */
+            align-items: center;
+            /* Pusatkan teks secara horizontal */
 
         }
 
@@ -234,31 +260,46 @@
 
         @media (max-width: 768px) {
             .pet-card-grid {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Atur min-width yang lebih kecil */
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                /* Atur min-width yang lebih kecil */
                 gap: 20px;
             }
+
             .pet-card {
-                width: auto; /* Biarkan lebar menyesuaikan grid pada layar kecil */
-                max-width: 211px; /* Batasi agar tidak terlalu lebar */
-                height: 280px; /* Sesuaikan tinggi total kartu untuk mobile */
+                width: auto;
+                /* Biarkan lebar menyesuaikan grid pada layar kecil */
+                max-width: 211px;
+                /* Batasi agar tidak terlalu lebar */
+                height: 280px;
+                /* Sesuaikan tinggi total kartu untuk mobile */
             }
+
             .pet-card img {
-                height: 200px; /* Sesuaikan tinggi gambar di mobile */
+                height: 200px;
+                /* Sesuaikan tinggi gambar di mobile */
             }
         }
 
         @media (max-width: 480px) {
             .pet-card-grid {
-                grid-template-columns: 1fr; /* Satu kolom penuh */
+                grid-template-columns: 1fr;
+                /* Satu kolom penuh */
             }
+
             .pet-card {
-                width: 90%; /* Contoh: 90% dari lebar parent */
-                margin: 0 auto; /* Pusatkan kartu di tengah */
-                max-width: 211px; /* Pertahankan max-width */
-                height: 280px; /* Tetap konsisten untuk mobile */
+                width: 90%;
+                /* Contoh: 90% dari lebar parent */
+                margin: 0 auto;
+                /* Pusatkan kartu di tengah */
+                max-width: 211px;
+                /* Pertahankan max-width */
+                height: 280px;
+                /* Tetap konsisten untuk mobile */
             }
+
             .pet-card img {
-                height: 200px; /* Sesuaikan tinggi gambar di mobile */
+                height: 200px;
+                /* Sesuaikan tinggi gambar di mobile */
             }
         }
 
@@ -270,28 +311,42 @@
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 20px;
             }
+
             .pet-card {
-                width: auto; /* Biarkan lebar menyesuaikan grid pada layar kecil */
-                max-width: 211px; /* Batasi agar tidak terlalu lebar */
-                height: 280px; /* Mungkin perlu tinggi yang sedikit lebih kecil di mobile */
+                width: auto;
+                /* Biarkan lebar menyesuaikan grid pada layar kecil */
+                max-width: 211px;
+                /* Batasi agar tidak terlalu lebar */
+                height: 280px;
+                /* Mungkin perlu tinggi yang sedikit lebih kecil di mobile */
             }
+
             .pet-card img {
-                height: 200px; /* Sesuaikan tinggi gambar di mobile */
+                height: 200px;
+                /* Sesuaikan tinggi gambar di mobile */
             }
         }
 
         @media (max-width: 480px) {
             .pet-card-grid {
-                grid-template-columns: 1fr; /* Satu kolom penuh */
+                grid-template-columns: 1fr;
+                /* Satu kolom penuh */
             }
+
             .pet-card {
-                width: 90%; /* Contoh: 90% dari lebar parent */
-                margin: 0 auto; /* Pusatkan kartu di tengah */
-                max-width: 211px; /* Pertahankan max-width */
-                height: 280px; /* Tetap konsisten untuk mobile */
+                width: 90%;
+                /* Contoh: 90% dari lebar parent */
+                margin: 0 auto;
+                /* Pusatkan kartu di tengah */
+                max-width: 211px;
+                /* Pertahankan max-width */
+                height: 280px;
+                /* Tetap konsisten untuk mobile */
             }
+
             .pet-card img {
-                height: 200px; /* Sesuaikan tinggi gambar di mobile */
+                height: 200px;
+                /* Sesuaikan tinggi gambar di mobile */
             }
         }
 
@@ -301,25 +356,35 @@
         @media (max-width: 768px) {
             .pet-card-grid {
                 /* Untuk layar kecil, minmax mungkin perlu lebih kecil dari 211px */
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Misalnya 180px */
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                /* Misalnya 180px */
                 gap: 20px;
             }
+
             .pet-card {
-                width: auto; /* Biarkan lebar menyesuaikan grid pada layar kecil */
-                max-width: 211px; /* Opsional: batasi agar tidak terlalu lebar di layar kecil */
+                width: auto;
+                /* Biarkan lebar menyesuaikan grid pada layar kecil */
+                max-width: 211px;
+                /* Opsional: batasi agar tidak terlalu lebar di layar kecil */
             }
         }
 
         @media (max-width: 480px) {
             .pet-card-grid {
-                grid-template-columns: 1fr; /* Satu kolom penuh */
+                grid-template-columns: 1fr;
+                /* Satu kolom penuh */
             }
+
             .pet-card {
-                width: 90%; /* Contoh: 90% dari lebar parent */
-                margin: 0 auto; /* Pusatkan kartu di tengah */
-                max-width: 211px; /* Pertahankan max-width */
+                width: 90%;
+                /* Contoh: 90% dari lebar parent */
+                margin: 0 auto;
+                /* Pusatkan kartu di tengah */
+                max-width: 211px;
+                /* Pertahankan max-width */
             }
         }
+
         /* ... CSS responsif di bawahnya ... */
 
         /* Pastikan responsif juga disesuaikan */
@@ -333,27 +398,32 @@
 
         @media (max-width: 480px) {
             .pet-card-grid {
-                grid-template-columns: 1fr; /* Satu kolom penuh */
+                grid-template-columns: 1fr;
+                /* Satu kolom penuh */
             }
         }
-                
+
 
         /* Dropdown khusus untuk Urutkan dari, meniru desain */
         .custom-dropdown {
             position: absolute;
-            top: 100%; /* Di bawah select */
+            top: 100%;
+            /* Di bawah select */
             right: 0;
             background-color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            width: 150px; /* Lebar sesuai select */
+            width: 150px;
+            /* Lebar sesuai select */
             z-index: 10;
             overflow: hidden;
-            display: none; /* Sembunyikan secara default */
+            display: none;
+            /* Sembunyikan secara default */
         }
 
         .custom-dropdown.active {
-            display: block; /* Tampilkan ketika aktif */
+            display: block;
+            /* Tampilkan ketika aktif */
         }
 
         .custom-dropdown div {
@@ -400,7 +470,10 @@
         }
 
         @media (max-width: 480px) {
-            header, .main-navbar, .content-area {
+
+            header,
+            .main-navbar,
+            .content-area {
                 padding: 10px 15px;
             }
 
@@ -421,7 +494,8 @@
                 font-size: 13px;
             }
 
-            .filter-group select, .sort-options select {
+            .filter-group select,
+            .sort-options select {
                 font-size: 13px;
                 padding: 8px 12px;
             }
@@ -433,7 +507,8 @@
 
         .adopsi-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 kolom sejajar */
             gap: 20px;
         }
 
@@ -442,22 +517,25 @@
             border-radius: 10px;
             overflow: hidden;
             background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            height: 100%; /* Biar seragam */
+            height: 100%;
+            /* Biar seragam */
         }
 
         .adopsi-card img {
             width: 100%;
-            height: 300px; /* Ukuran gambar seragam */
+            height: 300px;
+            /* Ukuran gambar seragam */
             object-fit: fill;
         }
 
         .adopsi-info {
             padding: 15px;
             text-align: left;
-            flex-grow: 1; /* Biar info isi penuh ke bawah */
+            flex-grow: 1;
+            /* Biar info isi penuh ke bawah */
         }
 
         .adopsi-info h3 {
@@ -472,10 +550,9 @@
             font-size: 14px;
             color: #666;
         }
-
-
     </style>
 </head>
+
 <body>
     <header>
         <div class="brand">Pet Saver</div>
@@ -490,56 +567,61 @@
             <img src="img/whitecat.png" alt="Cat Icon" class="cat-icon">
             Find Cat
         </div>
-        <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon"> </div>
+        <img src="img/whitecat2.png" alt="Chat Icon" class="right-icon">
+    </div>
 
     <div class="content-area">
         <aside class="sidebar">
-  <form method="GET" action="{{ route('kucing.index') }}">
-    <div class="filter-group">
-        <label for="keturunan">Keturunan</label>
-        <select name="keturunan" id="keturunan" onchange="this.form.submit()">
-            <option value="">Pilih</option>
-            <option value="British Short Hair" {{ request('keturunan') == 'British Short Hair' ? 'selected' : '' }}>British Short Hair</option>
-            <option value="Persia" {{ request('keturunan') == 'Persia' ? 'selected' : '' }}>Persia</option>
-            <option value="Maine coon" {{ request('keturunan') == 'Maine coon' ? 'selected' : '' }}>Maine Coon</option>
-        </select>
-    </div>
+            <form method="GET" action="{{ route('kucing.index') }}">
+                <div class="filter-group">
+                    <label for="keturunan">Keturunan</label>
+                    <select name="keturunan" id="keturunan" onchange="this.form.submit()">
+                        <option value="">Pilih</option>
+                        <option value="British Short Hair" {{ request('keturunan') == 'British Short Hair' ? 'selected' : '' }}>British Short Hair</option>
+                        <option value="Persia" {{ request('keturunan') == 'Persia' ? 'selected' : '' }}>Persia</option>
+                        <option value="Maine coon" {{ request('keturunan') == 'Maine coon' ? 'selected' : '' }}>Maine Coon
+                        </option>
+                    </select>
+                </div>
 
-    <div class="filter-group">
-        <label for="usia">Usia</label>
-        <select name="usia" id="usia" onchange="this.form.submit()">
-            <option value="">Pilih</option>
-            <option value="anak_kucing" {{ request('usia') == 'anak_kucing' ? 'selected' : '' }}>Anak Kucing</option>
-            <option value="dewasa" {{ request('usia') == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
-            <option value="senior" {{ request('usia') == 'senior' ? 'selected' : '' }}>Senior</option>
-        </select>
-    </div>
+                <div class="filter-group">
+                    <label for="usia">Usia</label>
+                    <select name="usia" id="usia" onchange="this.form.submit()">
+                        <option value="">Pilih</option>
+                        <option value="anak_kucing" {{ request('usia') == 'anak_kucing' ? 'selected' : '' }}>Anak Kucing
+                        </option>
+                        <option value="dewasa" {{ request('usia') == 'dewasa' ? 'selected' : '' }}>Dewasa</option>
+                        <option value="senior" {{ request('usia') == 'senior' ? 'selected' : '' }}>Senior</option>
+                    </select>
+                </div>
 
-    <div class="filter-group">
-        <label for="jenis_kelamin">Jenis Kelamin</label>
-        <select name="jenis_kelamin" id="jenis_kelamin" onchange="this.form.submit()">
-            <option value="">Pilih</option>
-            <option value="jantan" {{ request('jenis_kelamin') == 'jantan' ? 'selected' : '' }}>Jantan</option>
-            <option value="betina" {{ request('jenis_kelamin') == 'betina' ? 'selected' : '' }}>Betina</option>
-        </select>
-    </div>
-</form>
+                <div class="filter-group">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="jenis_kelamin" onchange="this.form.submit()">
+                        <option value="">Pilih</option>
+                        <option value="jantan" {{ request('jenis_kelamin') == 'jantan' ? 'selected' : '' }}>Jantan
+                        </option>
+                        <option value="betina" {{ request('jenis_kelamin') == 'betina' ? 'selected' : '' }}>Betina
+                        </option>
+                    </select>
+                </div>
+            </form>
 
         </aside>
 
         <section class="results-area">
-             <div class="adopsi-grid">
-        <div class="adopsi-container">
-            @foreach($hewan as $item)
-                <div class="adopsi-card">
-                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
-                    <div class="adopsi-info">
-                        <h3>{{ $item->nama_hewan }}</h3>
-                        <p>{{ $item->keturunan }}</p>
-                    </div>
+            <div class="adopsi-grid">
+                <div class="adopsi-container">
+                    @foreach($hewan as $item)
+                        <div class="adopsi-card">
+                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_hewan }}">
+                            <div class="adopsi-info">
+                                <h3>{{ $item->nama_hewan }}</h3>
+                                <p>{{ $item->keturunan }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
-        </div>
         </section>
     </div>
 
@@ -597,4 +679,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -469,7 +469,7 @@
     
     <div class="sign-in">
         @guest
-            <a href="{{ route('register') }}" class="auth-link">Sign In</a>
+            <a href="{{ route('login') }}" class="auth-link">Sign In</a>
         @else
             @if(Auth::user()->role === 'admin')
                 <a href="{{ route('dashboardAdmin') }}" class="auth-link">Dashboard</a>

@@ -30,7 +30,7 @@ Route::resource('hewanAdmin', HewanController::class);
 });
 
 Route::middleware(['auth', 'role:customer,admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'customer']);
+    // Route::get('/dashboard', [DashboardController::class, 'customer']);
 
     Route::resource('kucing', kucingController::class);
 
